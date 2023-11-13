@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD-1uySxS_b4Mx0SLWgwrnFKZl-1LpaUrc',
-    appId: '1:818823337804:web:13057b58dd558ca059e1e9',
-    messagingSenderId: '818823337804',
-    projectId: 'visionvault-d678c',
-    authDomain: 'visionvault-d678c.firebaseapp.com',
-    storageBucket: 'visionvault-d678c.appspot.com',
-    measurementId: 'G-SL8CVZSCEE',
+    apiKey: 'AIzaSyAQsduaUDOAeKDaMhVPnnrF4qV0Rz81j8M',
+    appId: '1:696871615793:web:50a7b9a1c56b87a61d0410',
+    messagingSenderId: '696871615793',
+    projectId: 'visionvault-78559',
+    authDomain: 'visionvault-78559.firebaseapp.com',
+    storageBucket: 'visionvault-78559.appspot.com',
+    measurementId: 'G-QVSHJ5V78R',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBDUH-nYsN7OK7qfrZlXAcz-qbnriMxY0c',
-    appId: '1:818823337804:android:a37bb29c3259c14859e1e9',
-    messagingSenderId: '818823337804',
-    projectId: 'visionvault-d678c',
-    storageBucket: 'visionvault-d678c.appspot.com',
+    apiKey: 'AIzaSyBo6yVgn991n5KQCMkYcQvAqIBszxYVgm0',
+    appId: '1:696871615793:android:ffb62625f2fadae61d0410',
+    messagingSenderId: '696871615793',
+    projectId: 'visionvault-78559',
+    storageBucket: 'visionvault-78559.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDhBccEdHThXXBZvqdekwgPUwBHx7mWb10',
-    appId: '1:818823337804:ios:32a55517b2498e5159e1e9',
-    messagingSenderId: '818823337804',
-    projectId: 'visionvault-d678c',
-    storageBucket: 'visionvault-d678c.appspot.com',
+    apiKey: 'AIzaSyDPWLQU5DscWOLknm4Ld69F576aqFA6-eI',
+    appId: '1:696871615793:ios:6e307de820fccfe61d0410',
+    messagingSenderId: '696871615793',
+    projectId: 'visionvault-78559',
+    storageBucket: 'visionvault-78559.appspot.com',
     iosBundleId: 'com.example.visionvault',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDhBccEdHThXXBZvqdekwgPUwBHx7mWb10',
-    appId: '1:818823337804:ios:681e35c98537c75159e1e9',
-    messagingSenderId: '818823337804',
-    projectId: 'visionvault-d678c',
-    storageBucket: 'visionvault-d678c.appspot.com',
+    apiKey: 'AIzaSyDPWLQU5DscWOLknm4Ld69F576aqFA6-eI',
+    appId: '1:696871615793:ios:0050db189d3e23a71d0410',
+    messagingSenderId: '696871615793',
+    projectId: 'visionvault-78559',
+    storageBucket: 'visionvault-78559.appspot.com',
     iosBundleId: 'com.example.visionvault.RunnerTests',
   );
 }

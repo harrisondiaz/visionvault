@@ -34,5 +34,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data
+            android:name="firebase_appcheck_debug_mode"
+            android:value="true" />
+
     </application>
 </manifest>

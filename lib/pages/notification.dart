@@ -28,6 +28,11 @@ class NotificationPage extends StatelessWidget{
     }catch(e){*/
       return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.arrow_back, color: "#ff2301".toColor(),),
+          ),
           backgroundColor: "#ff2301".toColor(), title: const Text("Notificaciones"),),
         body: const Column(children: [
           Text("No hay notificaciones"),

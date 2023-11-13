@@ -1,43 +1,26 @@
 {
   "project_info": {
-    "project_number": "818823337804",
-    "project_id": "visionvault-d678c",
-    "storage_bucket": "visionvault-d678c.appspot.com"
+    "project_number": "696871615793",
+    "project_id": "visionvault-78559",
+    "storage_bucket": "visionvault-78559.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:818823337804:android:a37bb29c3259c14859e1e9",
+        "mobilesdk_app_id": "1:696871615793:android:ffb62625f2fadae61d0410",
         "android_client_info": {
           "package_name": "com.example.visionvault"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "818823337804-08rjunhbflrskfocku07aoo3dhj3na3g.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBDUH-nYsN7OK7qfrZlXAcz-qbnriMxY0c"
+          "current_key": "AIzaSyBo6yVgn991n5KQCMkYcQvAqIBszxYVgm0"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "818823337804-08rjunhbflrskfocku07aoo3dhj3na3g.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "818823337804-ejnkjig1lvino2s6fag0d0a93l7cars9.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.visionvault"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

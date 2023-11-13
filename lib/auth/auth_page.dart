@@ -17,9 +17,7 @@ class AuthPage extends StatelessWidget{
         builder: (BuildContext context,snapshot){
 
 //function to toggle between login and register page
-
-
-          //user is logged in
+// user is logged in
           if(snapshot.hasData){
            return HomeFeedPage();
           }

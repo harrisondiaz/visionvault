@@ -1,3 +1,4 @@
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +17,11 @@ Future<void> main () async {
   }
   await Firebase.initializeApp();
   await FirebaseApi().initNotifications();
+  //await FirebaseAppCheck.instance.activate(androidProvider: AndroidProvider.playIntegrity,);
+  //print(FirebaseAppCheck.instance.getToken());
   runApp(const MyApp() );
 }
+
 
 
 

@@ -4,6 +4,8 @@ class Idea {
   String IdeaTitle;
   String IdeaDescription;
   String IdeaImageURL;
+  List<String> Tags;
+  String CreatedBy;
 
   Idea({
     required this.IdeaID,
@@ -11,7 +13,8 @@ class Idea {
     required this.IdeaTitle,
     required this.IdeaDescription,
     required this.IdeaImageURL,
-
+    required this.Tags,
+    required this.CreatedBy,
   });
 
   factory Idea.fromJson(Map<String, dynamic> json) {
@@ -23,6 +26,8 @@ class Idea {
         IdeaTitle: "",
         IdeaDescription: "",
         IdeaImageURL: "",
+        Tags: [],
+        CreatedBy : "",
       );
     }else{
       return Idea(
@@ -31,6 +36,8 @@ class Idea {
         IdeaTitle: json['IdeaTitle'],
         IdeaDescription: json['IdeaDescription'],
         IdeaImageURL: json['IdeaImageURL'],
+        Tags: List<String>.from(json['Tags']),
+        CreatedBy : json['CreatedBy'],
       );
     }
   }
@@ -41,5 +48,7 @@ class Idea {
     'ideaTitle': IdeaTitle,
     'ideaDescription': IdeaDescription,
     'ideaImageURL': IdeaImageURL,
+    'tags': Tags,
+    'createdBy': CreatedBy,
   };
 }

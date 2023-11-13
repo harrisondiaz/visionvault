@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:visionvault/dto/ideas.dart';
@@ -9,6 +11,7 @@ import 'package:visionvault/http/url.dart';
 import 'package:visionvault/utils/color.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:visionvault/pages/idea_by_id.dart';
+
 
 
 class HomeFeedPage extends StatefulWidget {
@@ -44,8 +47,12 @@ class _HomeFeedPageState extends State<HomeFeedPage>{
       });
       final response = await http.get(Uri.http(URL.BASE_URL, "/api/ideas"));
       if (response.statusCode == 200) {
-        final List<dynamic> data = jsonDecode(response.body);
-        final ideas = data.map((item) => Idea.fromJson(item)).toList();
+        final List data = jsonDecode(response.body);
+        final ideas = [];
+        for (var i = 0; i < data.length; i++) {
+          ideas.add(Idea.fromJson(data[i]));
+        }
+        print(ideas);
         setState(() {
           _ideas = ideas;
         });
@@ -81,11 +88,18 @@ class _HomeFeedPageState extends State<HomeFeedPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: myFuncion,
+          icon: Icon(Icons.mode_edit, color: "#ff2301".toColor(),),
+        ),
         backgroundColor: "#ff2301".toColor(), title: Text("VisionVault", style: GoogleFonts.raleway(fontSize: 20, fontWeight: FontWeight.bold),),
       ),
-      body: ListView.builder(
+      body: MasonryGridView.builder(
         itemCount: _ideas.length,
-        itemBuilder: (context, index) {
+        physics: NeverScrollableScrollPhysics(),
+        gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        itemBuilder: (context,index){
           final idea = _ideas[index]  ;
           return shimmer? Shimmer.fromColors(
             baseColor: Colors.grey[300]!,
@@ -124,38 +138,36 @@ class _HomeFeedPageState extends State<HomeFeedPage>{
             )
           ):ElevatedButton(onPressed: (){
                 pickImage(index);
-            }, child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Card(
-              child: Stack(
+            }, child: Card(
+              color: Colors.transparent,
+              elevation: 0.0,
+              child: Column(
                 children: [
-                  ListTile(
-                    title: Image.network(idea.IdeaImageURL),
-                    contentPadding: const EdgeInsets.all(20),
-                    subtitle:
-                    Row(
-                      textBaseline: TextBaseline.alphabetic,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Text(idea.IdeaTitle, style: GoogleFonts.raleway(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black),),
-                        ),
-                        //SizedBox(width: 10,),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    top: -10,
-                    right: 10,
+                  Align(
+                    alignment: Alignment.centerRight,
                     child: IconButton(
-                        onPressed:
-                        share
+                        onPressed: share
                         , icon: Icon(Icons.more_horiz, color: Colors.black,)),
                   ),
+                  InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => IdeaByIdPage(idea: idea,),
+                    ),
+                    );
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(idea.IdeaImageURL,fit: BoxFit.cover,),
+                  ),),
+                  Text(idea.IdeaTitle, style: GoogleFonts.raleway(fontSize: 12, fontWeight: FontWeight.bold,color: Colors.black),),
+
                 ],
               ),
-            ),
-          ), style: ElevatedButton.styleFrom(backgroundColor: "#ffffff".toColor(),) ,);
+            ), style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent, elevation: 0.0,padding: EdgeInsets.only(top: 20,right: 10,left: 10,bottom: 20),)
+            ,);
         },
       ),
     );
