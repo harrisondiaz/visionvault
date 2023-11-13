@@ -24,9 +24,7 @@ class FirebaseApi{
     //if the message is null ,do nothing
     if(message == null) return;
 
-    // navigate to new screen if the user taps on the notification
-    var snapshot = FirebaseAuth.instance.currentUser;
-    Navigator.of(navigatorKey.currentContext!).push(MaterialPageRoute(builder: (context) => FeedPage(title: snapshot,index: 3,), settings: RouteSettings(arguments: message)));
+    Navigator.of(navigatorKey.currentContext!).push(MaterialPageRoute(builder: (context) => FeedPage(index: 3,), settings: RouteSettings(arguments: message)));
   }
   // function to initialize background settings
   Future initPushNotifications() async{
@@ -35,5 +33,6 @@ class FirebaseApi{
     // attach event listeners for when  a notification open the app
     FirebaseMessaging.onMessageOpenedApp.listen(handleMessage);
   }
+
 
 }

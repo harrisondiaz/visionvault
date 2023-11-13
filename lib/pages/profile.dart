@@ -12,11 +12,15 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State{
+
+  var user = FirebaseAuth.instance.currentUser;
+  User? user2 = FirebaseAuth.instance.currentUser;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: "#ff2301".toColor(), title: const Text("Perfil"),
+        backgroundColor: "#ff2301".toColor(), title: Text(user?.displayName??"No hay nada", style: TextStyle(color: Colors.white),),
         actions: [
           //logout
           IconButton(

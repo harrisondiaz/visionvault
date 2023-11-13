@@ -7,6 +7,9 @@ import 'package:visionvault/auth/authservice.dart';
 import 'package:visionvault/pages/login.dart';
 import 'package:visionvault/utils/color.dart';
 
+
+import '../http/url.dart';
+
 class LogUpPage extends StatefulWidget {
   const LogUpPage({Key? key}) : super(key: key);
 
@@ -19,6 +22,8 @@ class LogUpPage extends StatefulWidget {
 class _LogUpPageState extends State<LogUpPage> {
   // text controller
   final _emailController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _lastnameController = TextEditingController();
   final _PasswordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
 
@@ -27,8 +32,16 @@ class _LogUpPageState extends State<LogUpPage> {
     _emailController.dispose();
     _PasswordController.dispose();
     _confirmPasswordController.dispose();
+    _nameController.dispose();
+    _lastnameController.dispose();
     super.dispose();
   }
+
+  Future delayed() async {
+    await Future.delayed(const Duration(seconds: 5));
+
+  }
+
 
   Future signUp() async {
     showDialog(context: context, builder: (BuildContext context) {
@@ -37,11 +50,15 @@ class _LogUpPageState extends State<LogUpPage> {
 
     if (passwordConfirmed()) {
       try {
+
+
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: _emailController.text.trim(),
-            password: _PasswordController.text.trim()
+            password: _PasswordController.text.trim(),
         );
+        //show notification
         Navigator.pop(context);
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const LogInPage(), ));
       } on FirebaseAuthException catch (e) {
         Navigator.pop(context);
         if (e.code == 'weak-password') {
@@ -85,12 +102,7 @@ class _LogUpPageState extends State<LogUpPage> {
   }
 
   GoogleSignIn() async {
-    // loading Circle
-    //sign in with Google
     await AuthService().signInWithGoogle();
-
-    //Navigator.of(context).push(MaterialPageRoute(builder: (context) => MainPage()));
-    //Navigator.of(context).pop();
   }
 
   void weakPasswordMessage() {
@@ -140,6 +152,49 @@ class _LogUpPageState extends State<LogUpPage> {
 
                     ),
                   ),
+                  //Name text field
+                  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          border: Border.all(color: Colors.white),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        child: Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: TextField(
+                              controller: _nameController,
+                              decoration: const InputDecoration(
+                                border: InputBorder.none,
+                                labelText: "Nombre",
+                              ),
+                            )
+                        ),
+                      )
+                  ),
+                  const SizedBox(height: 10,),
+                  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          border: Border.all(color: Colors.white),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        child: Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: TextField(
+                              controller: _lastnameController,
+                              decoration: const InputDecoration(
+                                border: InputBorder.none,
+                                labelText: "Apellido",
+                              ),
+                            )
+                        ),
+                      )
+                  ),
+                  const SizedBox(height: 10,),
                   //Email text field
                   Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),

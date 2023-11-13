@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "818823337804-2uqvuct47fbqld6qiml3r34vpc32gpu4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.visionvault",
+            "certificate_hash": "9bc39ebbb603b92208f118091d3d886063a9c4e9"
+          }
+        },
+        {
           "client_id": "818823337804-08rjunhbflrskfocku07aoo3dhj3na3g.apps.googleusercontent.com",
           "client_type": 3
         }

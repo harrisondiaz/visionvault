@@ -11,6 +11,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:visionvault/pages/idea_by_id.dart';
 
 
+
 class HomeFeedPage extends StatefulWidget {
   const HomeFeedPage({super.key});
 
@@ -44,8 +45,12 @@ class _HomeFeedPageState extends State<HomeFeedPage>{
       });
       final response = await http.get(Uri.http(URL.BASE_URL, "/api/ideas"));
       if (response.statusCode == 200) {
-        final List<dynamic> data = jsonDecode(response.body);
-        final ideas = data.map((item) => Idea.fromJson(item)).toList();
+        final List data = jsonDecode(response.body);
+        final ideas = [];
+        for (var i = 0; i < data.length; i++) {
+          ideas.add(Idea.fromJson(data[i]));
+        }
+        print(ideas);
         setState(() {
           _ideas = ideas;
         });
@@ -138,7 +143,20 @@ class _HomeFeedPageState extends State<HomeFeedPage>{
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
-                          child: Text(idea.IdeaTitle, style: GoogleFonts.raleway(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black),),
+                          child:
+                          Column(
+                            children: [
+                              Text(idea.IdeaTitle, style: GoogleFonts.raleway(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black),),
+                              Wrap(
+                                    children: [
+                                    for (var tag in idea.Tags)
+                                    Chip(
+                                      label: Text('#$tag'),
+                                  ),
+                                  ],
+                                ),
+                            ],
+                          ) ,
                         ),
                         //SizedBox(width: 10,),
                       ],

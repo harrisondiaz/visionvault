@@ -45,12 +45,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyD-1uySxS_b4Mx0SLWgwrnFKZl-1LpaUrc',
-    appId: '1:818823337804:web:13057b58dd558ca059e1e9',
+    appId: '1:818823337804:web:d5457e7363639bc659e1e9',
     messagingSenderId: '818823337804',
     projectId: 'visionvault-d678c',
     authDomain: 'visionvault-d678c.firebaseapp.com',
     storageBucket: 'visionvault-d678c.appspot.com',
-    measurementId: 'G-SL8CVZSCEE',
+    measurementId: 'G-6ZNGYGHKH2',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -67,6 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '818823337804',
     projectId: 'visionvault-d678c',
     storageBucket: 'visionvault-d678c.appspot.com',
+    androidClientId: '818823337804-2uqvuct47fbqld6qiml3r34vpc32gpu4.apps.googleusercontent.com',
+    iosClientId: '818823337804-ejnkjig1lvino2s6fag0d0a93l7cars9.apps.googleusercontent.com',
     iosBundleId: 'com.example.visionvault',
   );
 
@@ -76,6 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '818823337804',
     projectId: 'visionvault-d678c',
     storageBucket: 'visionvault-d678c.appspot.com',
+    androidClientId: '818823337804-2uqvuct47fbqld6qiml3r34vpc32gpu4.apps.googleusercontent.com',
+    iosClientId: '818823337804-r52rjuhakil7ckjbp0d68vusqr652r9j.apps.googleusercontent.com',
     iosBundleId: 'com.example.visionvault.RunnerTests',
   );
 }
